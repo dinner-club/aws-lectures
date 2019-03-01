@@ -12,8 +12,9 @@ Luckily, there are a few really awesome tools we can use to test much of our eve
 * Ruby installed on your machine (I believe anything >= 2.4)
 * [Docker desktop](https://www.docker.com/products/docker-desktop) installed
 * Node (not sure which version)
-* Python (at least 2.6.5)
+* Python (at least 2.7)
   * [AWS-CLI](https://github.com/aws/aws-cli)
+* Homebrew
 
 ## Caveats:
 Following the steps outlined in this readme will allow you write and test a lot of AWS functionality without calling their servers or actually deploying anything to the web. *However*, certain services cannot be run locally (translation services, image recognition, elastic search, etc.)
@@ -36,7 +37,21 @@ For the purpose of this document, the following can be safely developed without 
 * Set a limit and an alarm, just in case
 
 ### AWS-CLI
-* Set user/permissions
+_Requires Python/pip and a set of AWS credentials_
+
+#### Installation:
+```terminal
+$ sudo pip install awscli
+```
+
+#### Setup
+The following will get you set up quickly, but later you might want to check [the docs](https://github.com/aws/aws-cli) for cool ways to setup your CLI with [config files with multiple profiles](https://github.com/aws/aws-cli#getting-started) or getting some [decent autocomplete](https://github.com/aws/aws-cli#command-completion).
+
+Run the following:
+```terminal
+$ aws configure
+```
+Enter your Access Key ID, Secret Key, and a default Region when prompted.
 
 ---
 
@@ -52,7 +67,8 @@ _Always make sure you are logged into your AWS Dashboard when accessing the docs
 * SAM Local
   * [Specifications](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md)
   * [Developer Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-reference.html)
-* [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html)
+  * [SAM CLI Reference](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html)
+* [CloudFormation Template Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html)
 * Services
   * [DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Operations_Amazon_DynamoDB.html)
 * [JavaScript SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/)
